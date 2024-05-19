@@ -80,7 +80,6 @@ public class ZipAndJsonValidationTest {
                 if (entry.getName().contains("pdf")){
                     PDF pdf = new PDF(zis);
 
-                    //check number of pages
                     assertThat(pdf.numberOfPages)
                             .isEqualTo(74);
                     assertThat(pdf)
@@ -94,6 +93,7 @@ public class ZipAndJsonValidationTest {
             }
         }
     }
+
     @Test
     @DisplayName("Check content of Json object")
     void validateJsonTest() throws Exception {

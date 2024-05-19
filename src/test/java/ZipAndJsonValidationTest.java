@@ -51,11 +51,22 @@ public class ZipAndJsonValidationTest {
             while ((entry = zis.getNextEntry()) != null) {
                 if (entry.getName().contains("xlsx")){
                     XLS xls = new XLS(zis);
-                    final String brand= xls.excel.getSheetAt(1).getRow(3).getCell(0).getStringCellValue();
-                    final String model = xls.excel.getSheetAt(1).getRow(3).getCell(1).getStringCellValue();
+                    final String brandCaption = xls.excel
+                            .getSheetAt(1).getRow(0).getCell(0).getStringCellValue(),
+
+                            modelCaption=xls.excel.getSheetAt(1).getRow(0).getCell(1).getStringCellValue(),
+                            coreCaption=xls.excel.getSheetAt(1).getRow(0).getCell(2).getStringCellValue(),
+                            brand= xls.excel.getSheetAt(1).getRow(3).getCell(0).getStringCellValue(),
+                            model = xls.excel.getSheetAt(1).getRow(3).getCell(1).getStringCellValue();
                     final int coreCount = (int)
                             xls.excel.getSheetAt(1).getRow(3).getCell(2).getNumericCellValue();
                     final int sheetCount = xls.excel.getNumberOfSheets();
+                    assertThat(brandCaption)
+                            .isEqualTo("Brand");
+                    assertThat(modelCaption)
+                            .isEqualTo("model");
+                    assertThat(coreCaption)
+                            .isEqualTo("number of cores");
                     assertThat(brand)
                             .isEqualTo("Nvidia");
                     assertThat(model)

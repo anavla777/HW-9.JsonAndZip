@@ -1,0 +1,15 @@
+{
+  "name": "AAPL",
+  "type": "STOCK",
+  "isin": "US0378331005",
+  "exchanges": [
+    "LSE",
+    "NYSE",
+    "SSE"
+  ],
+  "additionalInfo": {
+    "minLotSize": "0.01",
+    "trading_enabled": true,
+    "has_options": false
+  }
+}
